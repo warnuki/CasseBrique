@@ -52,7 +52,7 @@ export default class Ball extends PIXI.Graphics{
 
         //rebonds
         if(this.x <= this.radius || this.x >= 1000 - this.radius) this.vector.x *= -1;
-        if(this.y <= this.radius || this.y >= 500 - this.radius) this.vector.y *= -1;
+        if(this.y <= this.radius || this.y >= 600 - this.radius) this.vector.y *= -1;
     }
 
     /**
