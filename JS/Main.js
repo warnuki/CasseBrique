@@ -1,3 +1,6 @@
+//importation
+import Ball from "./ball.js";
+
 //Création de l'application pixi
 const app = new PIXI.Application({
     width : 1000,
@@ -6,8 +9,10 @@ const app = new PIXI.Application({
     antialias : true
 });
 
+
 document.body.appendChild(app.view);
 
+let b = new Ball(100, 100, 20, 0xFFFF3, 215, 20);
 
 window.addEventListener('keydown', (e) =>{
     //fleche gauche
