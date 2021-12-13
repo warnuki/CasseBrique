@@ -12,7 +12,8 @@ const app = new PIXI.Application({
 
 document.body.appendChild(app.view);
 
-let b = new Ball(100, 100, 20, 0xFFFF3, 215, 20);
+let b = new Ball(100, 300, 10, 0xFFFF3, 215, 10);
+app.stage.addChild(b);
 
 window.addEventListener('keydown', (e) =>{
     //fleche gauche
@@ -43,7 +44,8 @@ window.addEventListener('keyup', (e) =>{
 function gameloop(){
     requestAnimationFrame(gameloop);
 
-    console.log("GameLoop");
+    //console.log("GameLoop");
+    b.move();
 }
 
 gameloop();
