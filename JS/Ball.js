@@ -1,3 +1,5 @@
+import G from "./G.js";
+
 // creation de la classe et exportation
 export default class Ball extends PIXI.Graphics{
     //Constructeur
@@ -51,15 +53,31 @@ export default class Ball extends PIXI.Graphics{
         this.y += this.vector.y * this.speed;
 
         //rebonds
-        if(this.x <= this.radius || this.x >= 1000 - this.radius) this.vector.x *= -1;
-        if(this.y <= this.radius || this.y >= 600 - this.radius) this.vector.y *= -1;
+        if(this.x <= this.radius || this.x >= G.wST - this.radius) this.vector.x *= -1;
+        if(this.y <= this.radius || this.y >= G.hST - this.radius) this.vector.y *= -1;
     }
 
     /**
      * Changement de direction de la balle
      */
-    ChangeDirection(direction){
-
+    changeDirection(direction){
+        if(direction === G.FaceCollide.left || direction === G.FaceCollide.right){
+            this.vector.x *= -1;
+        }
+        else if(direction === G.FaceCollide.top || direction === G.FaceCollide.bottom){
+            this.vector.y *= -1;
+        }
     }
 
+    get line(){
+        const currentX = this.x + this.vector.x * this.radius;
+        const currentY = this.y + this.vector.y * this.radius;
+        const previousX = this.x - this.vector.x * this.speed;
+        const previousY = this.y - this.vector.y * this.speed;
+
+        return [
+            {x: currentX, y: currentY},
+            {x: previousX, y: previousY}
+        ]
+    }
 }

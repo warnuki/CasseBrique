@@ -1,3 +1,5 @@
+import G from "./G.js";
+
 // creation de la classe et exportation
 export default class Pad extends PIXI.Graphics{
     //Constructeur
@@ -47,7 +49,7 @@ export default class Pad extends PIXI.Graphics{
      */
     move(){
         this.x += this.speed * this._sens;
-        this.x = Math.max(this.w * 0.5, Math.min(1000 - this.w * 0.5, this.x));
+        this.x = Math.max(this.w * 0.5, Math.min(G.wST - this.w * 0.5, this.x));
         
     }
 

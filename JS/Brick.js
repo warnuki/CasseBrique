@@ -14,7 +14,7 @@ export default class Brick extends PIXI.Graphics{
      * let l = new Brick(100, 100, 20, 200, 0xFFFF3);
      * app.stage.addChild(l))
      */
-    constructor(x, y, h, w, color){
+    constructor(x, y, h, w, color, bonus = undefined){
         //console.log("instance de pad crée");
         //console.log(x, y, w,h color);
 
@@ -27,6 +27,8 @@ export default class Brick extends PIXI.Graphics{
         this.color = color;
         this.h = h;
         this.w = w;
+        this.bonus = bonus;
+
         //Appel de la methode pour dessiner la balle
         this._draw();
     }
@@ -36,6 +38,7 @@ export default class Brick extends PIXI.Graphics{
      */
     _draw(){
         this.beginFill(this.color);
+        if(this.bonus !== undefined) this.lineStyle(3, 0xFFFFFF)
         this.drawRect( this.w/-2, this.h/-2, this.w, this.h);
     }
 
